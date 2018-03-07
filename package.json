@@ -15,5 +15,21 @@
   "bugs": {
     "url": "https://github.com/yutaro/mdx/issues"
   },
-  "homepage": "https://github.com/yutaro/mdx#readme"
+  "homepage": "https://github.com/yutaro/mdx#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.2.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.13",
+    "vuex": "^3.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
+  }
 }
