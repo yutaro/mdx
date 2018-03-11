@@ -11,6 +11,7 @@
 <script>
 import Vue from 'vue';
 import markdownEditor from '../components/mde.vue';
+Vue.use()
 export default {
     components : {
         markdownEditor

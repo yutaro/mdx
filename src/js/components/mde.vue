@@ -1,6 +1,6 @@
 <template lang="pug">
     .markdown-editor
-        textarea
+        
 </template>
 
 <script>
