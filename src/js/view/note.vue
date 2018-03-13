@@ -1,6 +1,7 @@
 <template lang="pug">
     .wrap
         textarea
+        a#download( href="#" download="test.txt" @click="download") download
 </template>
 
 
@@ -79,10 +80,15 @@ let render = (plaintext) => {
     })
 
     let result = lines.join("\n");
-    return marked(result);
+    return result;
 }
 
 export default {
+    data(){
+        return {
+            simplemde : null
+        }
+    },
     mounted(){
         let options = {
             autofocus : true,
@@ -99,7 +105,9 @@ export default {
                 underscoresBreakWords : true,
             },
             placeholder : "Type here ...",
-            previewRender : render,
+            previewRender : function(plainText){
+                return marked(render(plainText));
+                },
             renderingConfig : {
                 codeSyntaxHighlighting : true,
             },
@@ -124,6 +132,23 @@ export default {
             toolbarTips : true,
         }
         let simplemde = new SimpleMDE(options);
+
+        this.simplemde = simplemde;
+    },
+    methods : {
+        download(){
+            var blob = new Blob([ render(this.simplemde.value()) ], { "type" : "text/plain" });
+
+            if (window.navigator.msSaveBlob) { 
+                window.navigator.msSaveBlob(blob, "test.txt"); 
+
+                // msSaveOrOpenBlobの場合はファイルを保存せずに開ける
+                window.navigator.msSaveOrOpenBlob(blob, "test.txt"); 
+            } else {
+                document.getElementById("download").href = window.URL.createObjectURL(blob);
+            }
+        }
     }
+
 }
 </script>
