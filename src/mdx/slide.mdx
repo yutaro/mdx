@@ -1,0 +1,129 @@
+$md = [Markdown](https://ja.wikipedia.org/wiki/Markdown);
+$html = [html](https://ja.wikipedia.org/wiki/HyperText_Markup_Language);
+$smde = [simpleMDE](https://simplemde.com/);
+$marked = [Marked.js](https://github.com/markedjs/marked);
+$twitter = [@MYAOX3](https://twitter.com/MYAOX3/);
+$github = [Yutaro](https://github.com/yutaro);
+$gitpitch = [gitpitch](https://gitpitch.com/);
+$date = 2018/03/13;
+
+$smile = 😀;
+$nayamu = 🤔;
+$sushi = 🍣;
+
+$title = 
+# ${ md } を拡張してみた${smile}
+ ${date} Twitter : ${ twitter } Github : ${ github } 
+;
+
+$aboutMD = 
+## ${ md }とは...
++ 文書を記述するための軽量マークアップ言語  
++ 多くの場合は ${ md } => ${ html } に変換して使う  
+	+ テキストエディタとかに付いててメモするのとかに超便利！
+	
+```
+# Title
++ 箇条書き
++ 箇条書き
+	+ ネストした箇条書き
+--- しきり
+```
+
+多少構造的に記述できるのでメモ帳とかよりは綺麗にできてWordよりは操作が煩わしくない
+;
+
+$problem =
+### この${ md } を自分向けにカスタマイズしたい...
++ とりあえずテンプレとか使えるようにしたい
+	+ リンクとか毎回貼るのめんどくさい...
+	+ 長い文言とか間違えることが多い上にコピペする位置って結構変わる
+;
+
+$tukuttemita = 
+### 実装を考える...
++ ${ smde } という元からあるWeb上で使えるエディタを改造  
++ テンプレを使いたいだけならマクロ的な感じで実装するのが良さそう...
+	+ ${ smde } では ${ md } => ${ html } に ${ marked } を利用している..
+	+ この前にマクロを挟めば良さそう！
+	+ テンプレあり${ md } => ${ md } => ${ html }
+;
+
+$siyou =
+### 仕様
+```
+$name = yutaro
+```
+みたいな形で定義
+```
+# 僕の名前は$ { name }です.
+```
+みたいな形で使いたい
+;
+
+$demo =
+## できたものはこんな感じ
+;
+
+$howToMake =
+### ${ md } => slide
++ ${ md }ファイルをレンダリング前にダウンロード
++ ${ gitpitch } に投げてスライド化！
+;
+
+$result = 
+# 結論 : 個人的には幸せ!${ sushi }
+;
+
+$detail = 
+### 作ってみて
+#### Good
++ テンプレを埋め込めるのは書いてる最中はかなり便利！
++ 絵文字とか、頻繁に使うリンクなどをいれておける
+	+ 個人用にプロファイルできれば毎回入力する必要もなし
+
+#### Bad
++ あんまりシンプルとは言えない
++ 後から見たときにわかりにくい
++ 出力されるものの構造と似た形で記述できる良さが失われている
+;
+
+$hanzatu =　
+### ${ md } 拡張氾濫しすぎ問題
++ そもそも${ md }ってシンプルだからいいんじゃないのか？
++ みんな${ md }を拡張したがる理由ってなんなんだろ...${ nayamu }
+	+ 現状コミュニティが最高のMarkdownを模索している段階
+	+ カスタマイズ
+;
+
+$links = 
+### 参照
++ [markdownとは](http://www.markdown.jp/what-is-markdown/)
++ [markdown拡張記法の現状](https://gfx.hatenablog.com/entry/2017/06/11/130217)
++ [markdown night 2017](https://connpass.com/event/63383/)
+
+
+;
+
+
+${ title }
+---
+${ aboutMD }
+---
+${ problem }
+---
+${ tukuttemita }
+---
+${ siyou }
+---
+${ demo } 
+---
+${ result }
+---
+${ detail }
+---
+${ howToMake }
+---
+${ hanzatu }
+---
+${ links }
